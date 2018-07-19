@@ -7,7 +7,7 @@ $.getJSON( airtable_list_url, function( data ) {
   var items = [];
   $.each( data.records, function( key, val ) {
     console.log(val.fields)
-    items.push(`<h2>${val.fields['Name']}</h2>`);
+    items.push(`<h2>${val.fields['Trick Name']}</h2>`);
   });
   $(".list-view").append(items.join(''));
 });
