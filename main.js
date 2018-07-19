@@ -5,7 +5,7 @@ var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201
 $.getJSON( airtable_list_url , function( data ){
     console.log( data )
     var item = [];
-    $.each( data, function( key, val ){
+    $.each( data.records, function( key, val ){
         console.log(val.fields)
         items.push(`<h2>${val.fields['Name']}</h2>`);
     });
