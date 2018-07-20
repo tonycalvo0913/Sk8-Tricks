@@ -9,6 +9,6 @@ $.getJSON( airtable_list_url, function( data ) {
     console.log(val.fields)
     items.push(`<h2>${val.fields['Trick Name']}</h2>`);
   });
-  $(".list-view").append(items.join('Category'));
+  $(".list-view").append(items.join('Beginner'));
 });
 
