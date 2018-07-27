@@ -3,18 +3,19 @@
 //This is the url from the Airtable Authentication section
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
 
-var cardTemplate = function(trickname, category, image) {
-    return `
-      <div class="card col-sm-4">
-        <img src="${image}" class="card-img-top"alt="Card image cap">
+var listView = function(id, trickname, image, category) {
+    return `<div class="col-sm-3">
+      <div class="card mb-4 box-shadow">
+        <a href="?id=${id}"><img class="card-img-top" src="${image}"></a>
         <div class="card-body">
-          <h5 class="card-title">${trickname}</h5>
-          <p class="card-text">${category}</p>
-          <a href="#" class="btn btn-primary">Trick</a>
+          <h2><a href="?id=${id}">${trickname}</a></h2>
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">${category}</small>
+          </div>
         </div>
-      </div>`;
-    }
-    
+      </div>
+    </div>`;
+  }
 // This is where we get the JSON data from Airtable!
 
 $.getJSON( airtable_list_url, function( data ) {
