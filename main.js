@@ -5,7 +5,7 @@ var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201
 
 var listView = function(id, trickname, difficulty, category) {
     return `<div class="col-sm-3">
-        <div class="card-body">
+    <div class="card mb-4 box-shadow">
           <h2><a href="?id=${id}">${trickname}</a></h2>
           <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">${category}</small>
@@ -14,8 +14,8 @@ var listView = function(id, trickname, difficulty, category) {
         </div>
     </div>`;
   }
+  
 // This is where we get the JSON data from Airtable!
-var getDataForList = function() {
 $.getJSON( airtable_list_url, function( data ) {
     console.log(data.records);
   var html = [];
@@ -33,6 +33,6 @@ $.getJSON( airtable_list_url, function( data ) {
   html.push(`</div>`);
   });
 	// 3. Adds HTML for every item to our page
-  $(".listView").append(html.join(""));
+  $(".list-view").append(html.join(""));
 });
 }
