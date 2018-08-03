@@ -9,6 +9,7 @@ var listView = function(id, trickname, difficulty, category) {
           <h2><a href="?id=${id}">${trickname}</a></h2>
           <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">${category}</small>
+            <small class="text-muted">${difficulty}</small>
           </div>
         </div>
     </div>`;
@@ -21,11 +22,16 @@ $.getJSON( airtable_list_url, function( data ) {
   // 2. Iterates over every record and uses the list template
   $.each( data.records, function( index, val ) {
     // console.log(val.fields)
-    var id = val.id;
-    var fields = val.fields;
-    var trickname = fields["TrickName"];
-    var imageUrl = fields["Image"] ? fields["Image"][0].url : '';
-  });
+      var id = val.id;
+      var fields = val.fields;
+      var trickname = fields["TrickName"];
+      var category= fields["Category"];
+      var difficulty = fields["Difficulty"];
+      var itemHTML = listView(id, trickname, difficulty, category);
+	      html.push(itemHTML);
+    });
+    html.push(`</div>`);
+	// 3. Adds HTML for every item to our page
   $(".list-view").append(items.join(''));
 });
 
