@@ -29,7 +29,7 @@ $.getJSON( airtable_list_url, function( data ) {
       var difficulty = fields["Difficulty"];
       var itemHTML = listView(id, trickname, difficulty, category);
 	      html.push(itemHTML);
-    html.push(`</div>`);
+  html.push(`</div>`);
   });
 	// 3. Adds HTML for every item to our page
   $(".list-view").append(html.join(''));
