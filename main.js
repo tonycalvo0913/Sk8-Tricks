@@ -21,7 +21,7 @@ $.getJSON( airtable_list_url, function( data ) {
   html.push(`<div class="row">`);
   // 2. Iterates over every record and uses the list template
   $.each( data.records, function( index, val ) {
-    // console.log(val.fields)
+    console.log(val.fields)
       var id = val.id;
       var fields = val.fields;
       var trickname = fields["TrickName"];
