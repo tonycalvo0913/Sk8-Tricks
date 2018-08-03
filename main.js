@@ -17,6 +17,7 @@ var listView = function(id, trickname, difficulty, category) {
 // This is where we get the JSON data from Airtable!
 var getDataForList = function() {
 $.getJSON( airtable_list_url, function( data ) {
+    console.log(data.records);
   var html = [];
   html.push(`<div class="row">`);
   // 2. Iterates over every record and uses the list template
@@ -32,6 +33,6 @@ $.getJSON( airtable_list_url, function( data ) {
   html.push(`</div>`);
   });
 	// 3. Adds HTML for every item to our page
-  $(".list-view").append(html.join(""));
+  $(".listView").append(html.join(""));
 });
 }
