@@ -14,24 +14,25 @@ var listView = function(id, trickname, difficulty, category) {
         </div>
     </div>`;
   }
-  
-// This is where we get the JSON data from Airtable!
-$.getJSON( airtable_list_url, function( data ) {
-    console.log(data.records);
-  var html = [];
-  html.push(`<div class="row">`);
-  // 2. Iterates over every record and uses the list template
-  $.each( data.records, function( index, val ) {
-    console.log(val.fields)
-      var id = val.id;
-      var fields = val.fields;
-      var trickname = fields["TrickName"];
-      var category= fields["Category"];
-      var difficulty = fields["Difficulty"];
-      var itemHTML = listView(id, trickname, difficulty, category);
-	    html.push(itemHTML);
-  html.push(`</div>`);
-  });
+// Get and display the data for all items
+ var getDataForList = function() {  
+  // This is where we get the JSON data from Airtable!
+  $.getJSON( airtable_list_url, function( data ) {
+    //console.log(data.records);
+    var html = [];
+    html.push(`<div class="row">`);
+    // 2. Iterates over every record and uses the list template
+    $.each( data.records, function( index, val ) {
+     //console.log(val.fields)
+        var id = val.id;
+        var fields = val.fields;
+        var trickname = fields["TrickName"];
+        var category= fields["Category"];
+        var difficulty = fields["Difficulty"];
+        var itemHTML = listView(id, trickname, difficulty, category);
+        html.push(itemHTML);
+    });
+    html.push(`</div>`);
 	// 3. Adds HTML for every item to our page
   $(".list-view").append(html.join(""));
 });
