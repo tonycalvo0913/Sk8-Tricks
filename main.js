@@ -34,7 +34,7 @@ var listView = function(id, trickname, difficulty, category) {
     });
     html.push(`</div>`);
 	// 3. Adds HTML for every item to our page
-  $(".list-view").append(html.join(""));
+  $(".list-view").append(html.join(''));
 });
 }
 
