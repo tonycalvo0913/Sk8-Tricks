@@ -18,12 +18,12 @@ var listView = function(id, trickname, difficulty, category) {
  var getDataForList = function() {  
   // This is where we get the JSON data from Airtable!
   $.getJSON( airtable_list_url, function( data ) {
-    //console.log(data.records);
+    console.log(data.records);
     var html = [];
     html.push(`<div class="row">`);
     // 2. Iterates over every record and uses the list template
     $.each( data.records, function( index, val ) {
-     //console.log(val.fields)
+     console.log(val.fields)
         var id = val.id;
         var fields = val.fields;
         var trickname = fields["TrickName"];
@@ -60,10 +60,10 @@ var detailView = function(id, trickname, pictureUrl, difficulty, category, tips,
 // Get and display the data for one item based on on the ID
 var getDataForId = function(id) {
   $.getJSON( `https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?${id}?api_key=${keyB7EQxA9Lt2lvXE}`, function( record ) {
-    // console.log(data);
+    console.log(data);
     var html = [];
     html.push(`<div class="row">`);
-      // console.log(val)
+      console.log(val)
       var id = record.id;
       var fields = record.fields;
       var trickname = fields["TrickName"];
@@ -79,13 +79,13 @@ var getDataForId = function(id) {
   });
 }
 
-// Do we have an ID in the URL?
-// var id = getParameterByName("id");
+//Do we have an ID in the URL?
+var id = getParameterByName("id");
 
-// If we have an ID, we should only get the data for one item
-// Otherwise, we should display the data for all items
-// if (id) {
-//   getDataForId(id);
-// } else {
-//   getDataForList();
-// }
+//If we have an ID, we should only get the data for one item
+//Otherwise, we should display the data for all items
+if (id) {
+  getDataForId(id);
+} else {
+  getDataForList();
+}
