@@ -79,3 +79,13 @@ var getDataForId = function(id) {
   });
 }
 
+// Do we have an ID in the URL?
+var id = getParameterByName("id");
+
+// If we have an ID, we should only get the data for one item
+// Otherwise, we should display the data for all items
+if (id) {
+  getDataForId(id);
+} else {
+  getDataForList();
+}
