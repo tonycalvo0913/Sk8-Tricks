@@ -44,7 +44,7 @@ var detailView = function(id, trickname, pictureUrl, difficulty, category, tips,
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src="${pictureUrl}">
       <div class="card-body">
-        <h2>${trickname}</h2>
+        <h2><a href="?id=${id}">${trickname}</a></h2>
         <p class="card-text">${category}</p>
         <p class="card-text">${tips}</p>
         <div class="d-flex justify-content-between align-items-center">
@@ -80,12 +80,12 @@ var getDataForId = function(id) {
 }
 
 // Do we have an ID in the URL?
-var id = getParameterByName("id");
+// var id = getParameterByName("id");
 
 // If we have an ID, we should only get the data for one item
 // Otherwise, we should display the data for all items
-if (id) {
-  getDataForId(id);
-} else {
-  getDataForList();
-}
+// if (id) {
+//   getDataForId(id);
+// } else {
+//   getDataForList();
+// }
