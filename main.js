@@ -14,7 +14,7 @@ var api_key = 'keyB7EQxA9Lt2lvXE'
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
 
 var listView = function(id, trickname, difficulty, category) {
-    return `<div class="col-sm-3">
+    return `<div class="col-sm-6">
     <div class="card mb-4 box-shadow">
           <h2><a href="?id=${id}">${trickname}</a></h2>
           <div class="d-flex justify-content-between align-items-center">
