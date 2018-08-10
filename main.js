@@ -1,5 +1,15 @@
-//API Key from Airtable 
-//var api_key = 'keyB7EQxA9Lt2lvXE'
+// Helper for getting the `index.html?ID=` part form the URL
+var getParameterByName = function(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+// Airtable API Key, unique per user
+var api_key = 'keyB7EQxA9Lt2lvXE' 
+
 //This is the url from the Airtable Authentication section
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
 
