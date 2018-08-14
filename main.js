@@ -13,10 +13,10 @@ var api_key = 'keyB7EQxA9Lt2lvXE'
 //This is the url from the Airtable Authentication section
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
 
-var listView = function(id, name, difficulty, category) {
+var listView = function(id, trickname, difficulty, category) {
     return `<div class="col-sm-6">
     <div class="card mb-4 box-shadow">
-          <h2><a href="?id=${id}">${name}</a></h2>
+          <h2><a href="?id=${id}">${trickname}</a></h2>
           <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">${category}</small>
             <small class="text-muted">${difficulty}</small>
@@ -36,10 +36,10 @@ var listView = function(id, name, difficulty, category) {
      //console.log(val.fields)
         var id = val.id;
         var fields = val.fields;
-        var name = fields["Name"];
+        var trickname = fields["TrickName"];
         var category= fields["Category"];
         var difficulty = fields["Difficulty"];
-        var itemHTML = listView(id, name, difficulty, category);
+        var itemHTML = listView(id, trickname, difficulty, category);
         html.push(itemHTML);
     });
     html.push(`</div>`);
@@ -49,12 +49,12 @@ var listView = function(id, name, difficulty, category) {
 }
 
 // Template that generates HTML for one item in our detail view, given the parameters passed in
-var detailView = function(id, name, pictureUrl, difficulty, category, tips, instructions) {
+var detailView = function(id, trickname, pictureUrl, difficulty, category, tips, instructions) {
   return `<div class="col-sm-12">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src="${pictureUrl}">
       <div class="card-body">
-        <h2><a href="?id=${id}">${name}</a></h2>
+        <h2><a href="?id=${id}">${trickname}</a></h2>
         <p class="card-text">${category}</p>
         <p class="card-text">${tips}</p>
         <div class="d-flex justify-content-between align-items-center">
@@ -76,13 +76,13 @@ var getDataForId = function(id) {
       //console.log(val)
       var id = record.id;
       var fields = record.fields;
-      var name = fields["Name"];
+      var trickname = fields["TrickName"];
       var pictureUrl = fields["Image"] ? fields["Image"][0].url : '';
       var difficulty = fields["Difficulty"];
       var category = fields["Category"];
       var  instructions = fields["Instructions"];
       var tips= fields["Category"];
-      var itemHTML = detailView(id, name, pictureUrl, instructions, difficulty, category, tips);
+      var itemHTML = detailView(id, trickname, pictureUrl, instructions, difficulty, category, tips);
       html.push(itemHTML);
     html.push(`</div>`);
     $(".detail-view").append(html.join(""));
