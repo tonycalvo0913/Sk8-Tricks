@@ -69,7 +69,7 @@ var detailView = function(id, trickname, pictureUrl, difficulty, category, tips,
 
 // Get and display the data for one item based on on the ID
 var getDataForId = function(id) {
-  $.getJSON(`https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?${id}?api_key=keyB7EQxA9Lt2lvXE`, function( record ) {
+  $.getJSON(`https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?${id}?/api_key=keyB7EQxA9Lt2lvXE`, function( record ) {
     //console.log(data);
     var html = [];
     html.push(`<div class="row">`);
