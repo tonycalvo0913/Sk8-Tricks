@@ -8,10 +8,14 @@ var getParameterByName = function(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 // Airtable API Key, unique per user
-var api_key = 'keyB7EQxA9Lt2lvXE' 
+var Airtable = require('airtable');
+Airtable.configure({
+    endpointUrl: 'https://api.airtable.com',
+    apiKey: 'keyB7EQxA9Lt2lvXE'
+});
+var base = Airtable.base('appeG8kkwJsPViya8');
 
-//This is the url from the Airtable Authentication section
-var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
+
 
 var listView = function(id, trickname, difficulty, category, tips, tricktype) {
     return `<div class="col-sm-6">
