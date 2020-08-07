@@ -13,14 +13,13 @@ var api_key = 'keyB7EQxA9Lt2lvXE'
 //This is the url from the Airtable Authentication section
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
 
-var listView = function(id, trickname, difficulty, category, tips, tricktype) {
+var listView = function(id, trickname, difficulty, category, tricktype) {
     return `<div class="col-sm-6">
     <div class="card mb-4 box-shadow">
           <h2><a href="?id=${id}">${trickname}</a></h2>
           <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">${category}</small>
             <small class="text-muted">${difficulty}</small>
-            <small class="text-muted">${tips}</small>
             <small class="text-muted">${tricktype}</small>
           </div>
         </div>
