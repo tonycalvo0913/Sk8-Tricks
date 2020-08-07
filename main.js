@@ -8,7 +8,7 @@ var getParameterByName = function(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 // Airtable API Key, unique per user
-var api_key = 'kkeyB7EQxA9Lt2lvXE'
+var api_key = 'keyB7EQxA9Lt2lvXE'
 
 //This is the url from the Airtable Authentication section
 var airtable_list_url = 'https://api.airtable.com/v0/appG4GemUBkB0ygAy/Table%201?api_key=keyB7EQxA9Lt2lvXE';
