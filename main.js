@@ -43,7 +43,7 @@ var listView = function(id, trickname, difficulty, category, tips, tricktype) {
         var difficulty = fields["Difficulty"];
         var tricktype = fields["TrickType"];
         var tips = fields["Tips"];
-        var itemHTML = listView(id, trickname, difficulty, category, tricktype, );
+        var itemHTML = listView(id, trickname, difficulty, category, tricktype);
         html.push(itemHTML);
     });
     html.push(`</div>`);
