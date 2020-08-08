@@ -83,7 +83,7 @@ var getDataForId = function(id) {
       var pictureUrl = fields["Image"] ? fields["Image"][0].url : '';
       var difficulty = fields["Difficulty"];
       var category = fields["Category"];
-      var  instructions = fields["Instructions"];
+      var instructions = fields["Instructions"];
       var tips= fields["Tips"];
       var itemHTML = detailView(id, trickname, pictureUrl, instructions, difficulty, category, tips);
       html.push(itemHTML);
